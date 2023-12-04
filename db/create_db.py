@@ -7,8 +7,8 @@ def delete_db():
 
 
 def make_db():
-    query0 = """CREATE DATABASE gg"""
-    query1 = """CREATE TABLE gg.users(
+    query0 = """CREATE DATABASE algo"""
+    query1 = """CREATE TABLE algo.users(
                 id_user INT AUTO_INCREMENT PRIMARY KEY,
                 username TEXT,
                 password TEXT,
