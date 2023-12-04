@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -8,9 +8,15 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/auth')
+@app.route('/auth', methods=['POST', 'GET'])
 def auth():
-    return render_template('authorization.html')
+    if request.method == 'GET':
+        return render_template('authorization.html')
+    elif request.method == 'POST':
+        username, login, password = request.form['name'], request.form['login'], request.form['passwd']
+        file = request.files['file']
+        file.save(f"static/img/{file.filename}")
+        print(username, login, password, file)
 
 
 @app.route('/register')
