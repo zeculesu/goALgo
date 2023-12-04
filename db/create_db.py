@@ -11,6 +11,7 @@ def make_db():
     query1 = """CREATE TABLE algo.users(
                 id_user INT AUTO_INCREMENT PRIMARY KEY,
                 username TEXT,
+                login TEXT,
                 password TEXT,
                 photo TEXT) """
     cursor.execute(query0)
@@ -24,5 +25,5 @@ if __name__ == '__main__':
         password="Admin",
     )
     cursor = db.cursor()
-    delete_db()
+    #delete_db()
     make_db()
