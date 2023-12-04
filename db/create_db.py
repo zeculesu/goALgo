@@ -11,7 +11,8 @@ def make_db():
     query1 = """CREATE TABLE gg.users(
                 id_user INT AUTO_INCREMENT PRIMARY KEY,
                 username TEXT,
-                password TEXT) """
+                password TEXT,
+                photo TEXT) """
     cursor.execute(query0)
     cursor.execute(query1)
 
