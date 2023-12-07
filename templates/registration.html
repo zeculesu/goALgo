@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-<div class="fullscreen" id="iframeDiv">
+<div class="container-fluid mx-auto" id="iframeDiv">
     <iframe src="navbar.html" iframetag></iframe>
 </div>
 <div class="container">
@@ -30,16 +30,20 @@
     </div>
     <div class="row">
         <div class="col"></div>
-        <div class="col text-center" style="background-color: #f4f4f4;">
+        <div class="col text-center center-block mx-auto rounded-3"
+        style="background-color: #f4f4f4; max-width: 500px;">
             <form class="login_form" method="post" enctype="multipart/form-data" name="registration">
-                <input type="text" class="form-control" id="text" placeholder="Введите ФИО" name="name">
-                <input type="text" class="form-control" id="text" placeholder="Введите логин" name="login">
-                <input type="text" class="form-control" id="text" placeholder="Введите пароль" name="passwd">
+                <input type="text" class="form-control" id="text" placeholder="Введите имя*" name="name">
+                <input type="text" class="form-control" id="text" placeholder="Введите фамилию*" name="surname">
+                <input type="text" class="form-control" id="text" placeholder="Введите отчество" name="thirdname">
+                <input type="text" class="form-control" id="text" placeholder="Введите серию и номер паспорта*" name="document">
+                <input type="text" class="form-control" id="text" placeholder="Введите логин*" name="login">
+                <input type="text" class="form-control" id="text" placeholder="Введите пароль*" name="passwd">
                 <div class="form-group">
                     <label for="photo">Выберите ваше фото</label>
-                    <input type="file" class="form-control-file" id="photo" name="file">
                 </div>
-                <button type="submit" class="btn btn-primary" id="button">Регистрация</button>
+                <input type="file" class="form-control-file mx-auto" id="photo" name="file">
+                <button type="submit" class="btn border" id="button" style="color: #f4f4f4; background-color: #ff2e2e;">Регистрация</button>
             </form>
         </div>
         <div class="col"></div>
