@@ -49,26 +49,28 @@
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script></body>
       <!-- <script src="../static/drag.js"></script> -->
+      <script src= "https://code.jquery.com/jquery-1.12.4.min.js"></script> 
+      
 
-
-     
+      <script type="text/javascript"> 
+        $(document).ready(function() { 
+            $('input[type="checkbox"]').click(function() { 
+                var inputValue = $(this).attr("value"); 
+                $("." + inputValue).toggle(); 
+            }); 
+        }); 
+    </script> 
       
 
       <div class="container">
         <div class="row">
           <div class="column" style="max-width: 25%;">
-            <input type="checkbox" class="form-check-input" id="chk">
-            <div class="form-group">
-              <div class="form-check">
-                <label class="form-check-label" for="chk">Отслеживать свою заявку</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <img class="img-fluid" src="../static/img/mem1.jpeg" alt="" id="input-email">
-            </div>
-          </div>
+            <label>
+            <input type="checkbox" name="colorCheckbox" value="solution-tree">
+             дерево решений
+            </label> 
           
-        
+        </div>
           <div class="column text-center mx-auto" style="max-width: 75%;">
             <div class="form-group">
               <div id="input-email">
@@ -78,22 +80,16 @@
               <p>Drug me around</p>
             </div>
             <ul class="task-list" style="list-style-type: none;">
-              <li class="draggable" id='0' draggable="true">
-                <div class="form-group">
-                  <div id="input-email">
-                    
-                    <div class="column">
-                      <div class="row h1">
-                        <p>стоимость</p> 
-                      </div>
-                      <div class="row">
-                        <img class="img-fluid" src="../static/img/mem1.jpeg" alt="">
-                      </div>
-                    </div>
-                    
+              <li class="draggable selectt solution-tree" id='0' draggable="true">
+                <div class="column">
+                  <div class="row h1">
+                    <p>дерево решений</p> 
+                  </div>
+                  <div class="row">
+                    <img class="img-fluid" src="../static/img/mem1.jpeg" alt="">
                   </div>
                 </div>
-              </li>
+               </li>
 
 
 
