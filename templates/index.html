@@ -12,6 +12,14 @@
         <link href="../static/css/navbar.css" rel="stylesheet">
         <link href="../static/css/index.css" rel="stylesheet">
 
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script>
+        $( function() {
+            $( "#draggable" ).draggable();
+        } );
+        </script>
+
     </head>
     <body>
       <nav class="navbar navbar-light border-bottom">
@@ -40,5 +48,10 @@
       <script src="https://kit.fontawesome.com/9b9ea2d9ab.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script></body>
+      
+      <div id="draggable" class="ui-widget-content">
+        <p>Drug me around</p>
+      </div>
+
     </body>
 </html>
