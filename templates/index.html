@@ -48,57 +48,100 @@
       <script src="https://kit.fontawesome.com/9b9ea2d9ab.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script></body>
-      
-      <div class="container">
+      <!-- <script src="../static/drag.js"></script> -->
+      <div class="container text-center mx-auto" style="max-width: 350px;">
         <div id="draggable" class="ui-widget-content">
           <p>Drug me around</p>
         </div>
-        <ul>
-          <li class="dropzone" id='0' draggable="true">List item 1</li>
-          <li class="dropzone" id='1' draggable="true">List item 2</li>
-          <li class="dropzone" id='2' draggable="true">List item 3</li>
-          <li class="dropzone" id='3' draggable="true">List item 4</li>
-          <li class="dropzone" id='4' draggable="true">List item 5</li>
+        <ul class="task-list" style="list-style-type: none;">
+          <li class="draggable" id='0' draggable="true">
+            <img class="img-fluid" src="../static/img/mem1.jpeg" alt="">
+          </li>
+          <li class="draggable" id='1' draggable="true">
+            <img class="img-fluid" src="../static/img/mem2.webp" alt="">
+          </li>
+          <li class="draggable" id='2' draggable="true">
+            <img class="img-fluid" src="../static/img/ava.jpg" alt="">
+          </li>
+          <li class="draggable" id='3' draggable="true">
+            <img class="img-fluid" src="../static/img/mem3.png" alt="">
+          </li>
+          <li class="draggable" id='4' draggable="true">
+            <img class="img-fluid" src="../static/img/mem5.jpeg" alt="">
+          </li>
         </ul>
       </div>
       <script>
-        let dragged;
-let id;
-let index;
-let indexDrop;
-let list;
-
-  document.addEventListener("dragstart", ({target}) => {
-      dragged = target;
-      id = target.id;
-      list = target.parentNode.children;
-      for(let i = 0; i < list.length; i += 1) {
-        if(list[i] === dragged){
-          index = i;
+        var btn = document.querySelector('.add');
+        var remove = document.querySelector('.draggable');
+        
+        function dragStart(e) {
+          dragSrcEl = this;
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('text/html', this.innerHTML);
+        };
+        
+        function dragEnter(e) {
+          this.classList.add('over');
         }
-      }
-  });
-
-  document.addEventListener("dragover", (event) => {
-      event.preventDefault();
-  });
-
-  document.addEventListener("drop", ({target}) => {
-   if(target.className == "dropzone" && target.id !== id) {
-       dragged.remove( dragged );
-      for(let i = 0; i < list.length; i += 1) {
-        if(list[i] === target){
-          indexDrop = i;
+        
+        function dragLeave(e) {
+          e.stopPropagation();
+          this.classList.remove('over');
         }
-      }
-      console.log(index, indexDrop);
-      if(index > indexDrop) {
-        target.before( dragged );
-      } else {
-       target.after( dragged );
-      }
-    }
-  });
+        
+        function dragOver(e) {
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'move';
+          return false;
+        }
+        
+        function dragDrop(e) {
+          if (dragSrcEl != this) {
+            dragSrcEl.innerHTML = this.innerHTML;
+            this.innerHTML = e.dataTransfer.getData('text/html');
+          }
+          return false;
+        }
+        
+        function dragEnd(e) {
+          var listItens = document.querySelectorAll('.draggable');
+          [].forEach.call(listItens, function(item) {
+            item.classList.remove('over');
+          });
+        }
+        
+        function addEventsDragAndDrop(el) {
+          el.addEventListener('dragstart', dragStart, false);
+          el.addEventListener('dragenter', dragEnter, false);
+          el.addEventListener('dragover', dragOver, false);
+          el.addEventListener('dragleave', dragLeave, false);
+          el.addEventListener('drop', dragDrop, false);
+          el.addEventListener('dragend', dragEnd, false);
+        }
+        
+        var listItens = document.querySelectorAll('.draggable');
+        [].forEach.call(listItens, function(item) {
+          addEventsDragAndDrop(item);
+        });
+        
+        function addNewItem() {
+          var newItem = document.querySelector('.input').value;
+          if (newItem != '') {
+            document.querySelector('.input').value = '';
+            var li = document.createElement('li');
+            var attr = document.createAttribute('draggable');
+            var ul = document.querySelector('ul');
+            li.className = 'draggable';
+            attr.value = 'true';
+            li.setAttributeNode(attr);
+            li.appendChild(document.createTextNode(newItem));
+            ul.appendChild(li);
+            addEventsDragAndDrop(li);
+          }
+        }
+        
+        btn.addEventListener('click', addNewItem);
       </script>
     </body>
 </html>
