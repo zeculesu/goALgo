@@ -19,3 +19,26 @@ body {
     left:0;
     width: 100%;
 }
+#draggable { 
+    width: 150px; 
+    height: 150px; 
+    padding: 0.5em; 
+}
+h1 { 
+    text-align:center; 
+    margin-top:10px; 
+}
+#chk, #input-email{
+    display: none;
+  }
+  
+label[for="chk"]::before{
+    content: "⊡"; font-size: 2em; 
+}
+#chk:checked~.form-group label[for="chk"]::before{
+    content:"⊠"
+}
+  
+#chk:checked~.form-group #input-email {
+display: inline-block;
+}

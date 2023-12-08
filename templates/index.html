@@ -49,45 +49,89 @@
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script></body>
       <!-- <script src="../static/drag.js"></script> -->
-      <div class="container text-center mx-auto" style="max-width: 350px;">
-        <div id="draggable" class="ui-widget-content">
-          <p>Drug me around</p>
-        </div>
-        <ul class="task-list" style="list-style-type: none;">
-          <li class="draggable" id='0' draggable="true">
-            <div class="container>">
-                <div class="column">
-                    <div class="row">
-                        стоимость 
-                    </div>
-                    <div class="row">
+
+
+     
+      
+
+      <div class="container">
+        <div class="row">
+          <div class="column" style="max-width: 25%;">
+            <input type="checkbox" class="form-check-input" id="chk">
+            <div class="form-group">
+              <div class="form-check">
+                <label class="form-check-label" for="chk">Отслеживать свою заявку</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <input >
+            </div>
+          </div>
+          
+        
+          <div class="column text-center mx-auto" style="max-width: 75%;">
+            <div class="form-group">
+              <div id="input-email">
+              </div>
+            </div>
+            <div id="draggable" class="ui-widget-content">
+              <p>Drug me around</p>
+            </div>
+            <ul class="task-list" style="list-style-type: none;">
+              <li class="draggable" id='0' draggable="true">
+                <div class="form-group">
+                  <div id="input-email">
+                    
+                    <div class="column">
+                      <div class="row h1">
+                        <p>стоимость</p> 
+                      </div>
+                      <div class="row">
                         <img class="img-fluid" src="../static/img/mem1.jpeg" alt="">
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </li>
+
+
+
+
+
+              <li class="draggable" id='1' draggable="true">
+                <div class="container">
+                    <div class="column">
+                        <div class="row h1">
+                            <p>данные о бумаге</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" width="100%" src="../static/img/mem2.webp" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
-          </li>
-          <li class="draggable" id='1' draggable="true">
-            <div class="container>">
-                <div class="column">
-                    <div class="row">
-                        данные о бумаге
-                    </div>
-                    <div class="row">
-                        <img class="img-fluid" src="../static/img/mem1.jpeg" alt="">
-                    </div>
-                </div>
-            </div>
-          </li>
-          <li class="draggable" id='2' draggable="true">
-            <img class="img-fluid" src="../static/img/ava.jpg" alt="">
-          </li>
-          <li class="draggable" id='3' draggable="true">
-            <img class="img-fluid" src="../static/img/mem3.png" alt="">
-          </li>
-          <li class="draggable" id='4' draggable="true">
-            <img class="img-fluid" src="../static/img/mem5.jpeg" alt="">
-          </li>
-        </ul>
+              </li>
+              <li class="draggable" id='2' draggable="true">
+                <div class="container">
+                  <div class="column">
+                      <div class="row h1">
+                          <p>данные о бумаге</p>
+                      </div>
+                      <div class="row">
+                          <img class="img-fluid" width="100%" src="../static/img/mem3.png" alt="">
+                      </div>
+                  </div>
+              </div>
+              </li>
+              <li class="draggable" id='3' draggable="true">
+                <img class="img-fluid" src="../static/img/mem3.png" alt="">
+              </li>
+              <li class="draggable" id='4' draggable="true">
+                <img class="img-fluid" src="../static/img/mem5.jpeg" alt="">
+              </li>
+            </ul>
+          </div>
+          </div>
       </div>
       <script>
         var btn = document.querySelector('.add');
