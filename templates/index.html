@@ -80,22 +80,22 @@
 
                 <li>
                   <label>
-                  <input class="form-check-input" type="checkbox" name="colorCheckbox" value="solution-tree" checked>
+                  <input class="form-check-input bg-danger" type="checkbox" name="colorCheckbox" value="solution-tree" checked>
                     дерево решений
                   </label>
                 </li>
                 <li>
-                  <input class="form-check-input" type="checkbox" name="colorCheckbox" value="invest-bag" checked>
+                  <input class="form-check-input bg-danger" type="checkbox" name="colorCheckbox" value="invest-bag" checked>
                     инвест портфель
                   </label>
                 </li>
                 <li>
-                  <input class="form-check-input" type="checkbox" name="colorCheckbox" value="candle-graph-akcii" checked>
+                  <input class="form-check-input bg-danger" type="checkbox" name="colorCheckbox" value="candle-graph-akcii" checked>
                     график свечей по акциям
                   </label>
                 </li>
                 <li>
-                  <input class="form-check-input" type="checkbox" name="colorCheckbox" value="candle-graph-index" checked>
+                  <input class="form-check-input bg-danger" type="checkbox" name="colorCheckbox" value="candle-graph-index" checked>
                     график свечей по индексам
                   </label>
                 </li>
@@ -119,44 +119,54 @@
               <!-- макет, здесь важны класс candle-graph-index - заменить 
               на соответствующий идентификатор чекбокса, id - не уверен, 
               но лучше ставить как первое отсутствующее натуральное число, 
-              сама картинка очевидно. в первом row можно дописать заголовок -->
+              сама картинка очевидно. в первом row можно дописать заголовок
+            остальное, опять же, копировать если нужны еще виджеты -->
 
-              <li class="draggable selectt solution-tree" id='0' draggable="true">
-                <div class="column">
-                  <div class="row">
-                  </div>
-                  <div class="row">
-                      <img class="img-fluid" src="../static/img/tbl.png" alt="">
+              <li class="draggable my-2" id='0' draggable="true" style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt solution-tree rounded-3 p-3 fs-3 border">
+                  <div class="column">
+                    <div class="row">
+                      <p>dgflkjnhdl hngf</p>
+                    </div>
+                    <div class="row">
+                        <img class="img-fluid" src="../static/img/tbl.png" alt="">
+                    </div>
                   </div>
                 </div>
               </li>
 
-              <li class="draggable selectt invest-bag" id='1' draggable="true">
-                <div class="column">
-                  <div class="row">
-                  </div>
-                  <div class="row">
-                      <img class="img-fluid" src="../static/img/tbl3.png" alt="">
-                  </div>
-                </div>
-              </li>
-
-              <li class="draggable selectt candle-graph-akcii" id='2' draggable="true">
-                <div class="column">
-                  <div class="row">
-                  </div>
-                  <div class="row">
-                      <img class="img-fluid" src="../static/img/tbl4.png" alt="">
+              <li class="draggable my-2" id='1' draggable="true" style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt invest-bag rounded-3 p-3 fs-3 border">
+                  <div class="column">
+                    <div class="row">
+                    </div>
+                    <div class="row">
+                        <img class="img-fluid" src="../static/img/tbl3.png" alt="">
+                    </div>
                   </div>
                 </div>
               </li>
 
-              <li class="draggable selectt candle-graph-index" id='3' draggable="true">
-                <div class="column">
-                  <div class="row">
+              <li class="draggable my-2" id='2' draggable="true" style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt candle-graph-akcii rounded-3 p-3 fs-3 border">
+                  <div class="column">
+                    <div class="row">
+                    </div>
+                    <div class="row">
+                        <img class="img-fluid" src="../static/img/tbl4.png" alt="">
+                    </div>
                   </div>
-                  <div class="row">
-                      <img class="img-fluid" src="../static/img/tbl5.png" alt="">
+                </div>
+              </li>
+
+              <li class="draggable my-2" id='3' draggable="true" style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt candle-graph-index rounded-3 p-3 fs-3 border">
+                  <div class="column">
+                    <div class="row">
+                    </div>
+                    <div class="row">
+                        <img class="img-fluid" src="../static/img/tbl5.png" alt="">
+                    </div>
                   </div>
                 </div>
               </li>
