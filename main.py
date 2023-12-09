@@ -5,7 +5,7 @@ from flask_login import LoginManager, login_user, current_user, logout_user, log
 from UserLogin import UserLogin
 from FDataBase import FDataBase
 from time import time
-from data import get_data, draw_graf
+from data import get_data, draw_graf, draw_graf_value, draw_graf_volume
 from datetime import datetime, timedelta
 
 
@@ -86,12 +86,10 @@ def widgets():
     vtb = get_data('VTBR', data, 0)[::-1][:15]
     rosn = get_data('ROSN', data, 0)[::-1][:15]
     gasp = get_data('GASP', data, 0)[::-1][:15]
-    draw_graf('static/img/candle_yndx.png', yndx)
-    draw_graf('static/img/candle_sber.png', sber)
-    draw_graf('static/img/candle_vtb.png', vtb)
-    draw_graf('static/img/candle_rosn.png', rosn)
-    draw_graf('static/img/candle_gasp.png', gasp)
-
+    for name, act in zip(["yndx", "sber", "vtb", "rosn", "gasp"], [yndx, sber, vtb, rosn, gasp]):
+        draw_graf(f'static/img/candle_{name}.png', act)
+        draw_graf_value(f'static/img/value_{name}.png', act)
+        draw_graf_volume(f'static/img/volume_{name}.png', act)
     return render_template('widgets.html')
 
 
