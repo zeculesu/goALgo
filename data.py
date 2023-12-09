@@ -42,11 +42,11 @@ def draw_graf(filename, prices):
     # display candlestick chart
     plt.savefig(filename)
 
-
-prices = get_data('YNDX', '2023-10-10', 16)[:15]
-draw_graf('static/img/tbl3.png', prices)
-
-prices = get_data('SBER', '2023-10-10', 0)[:15]
-draw_graf('static/img/tbl4.png', prices)
-prices = get_data('SBER', '2023-10-10', 16)[:15]
-draw_graf('static/img/tbl5.png', prices)
+#
+# prices = get_data('YNDX', '2023-10-10', 16)[:15]
+# draw_graf('static/img/tbl3.png', prices)
+#
+# prices = get_data('SBER', '2023-10-10', 0)[:15]
+# draw_graf('static/img/tbl4.png', prices)
+# prices = get_data('SBER', '2023-10-10', 16)[:15]
+# draw_graf('static/img/tbl5.png', prices)
