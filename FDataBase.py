@@ -47,10 +47,10 @@ class FDataBase:
         return res
 
     def getUser(self, userid):
-        q = f"""SELECT * FROM algo.users WHERE id_user = "{userid}";"""
+        q = f"""SELECT * FROM algo.users WHERE id_user = "{userid[0]}";"""
         self.cursor.execute(q)
         res = self.cursor.fetchall()
-        return res
+        return userid
     # def getMenu(self):
     #     sql = '''SELECT * FROM user'''
     #     try:

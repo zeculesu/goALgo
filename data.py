@@ -41,6 +41,8 @@ def draw_graf(filename, prices):
     # display candlestick chart
     plt.savefig(filename)
 
+    plt.close()
+
 
 def draw_graf_value(filename, prices):
     # create figure
@@ -58,6 +60,8 @@ def draw_graf_value(filename, prices):
 
     # display candlestick chart
     plt.savefig(filename)
+    plt.close()
+
 
 
 def draw_graf_volume(filename, prices):
@@ -76,6 +80,8 @@ def draw_graf_volume(filename, prices):
 
     # display candlestick chart
     plt.savefig(filename)
+    plt.close()
+
 
 
 def get_index():

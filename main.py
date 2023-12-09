@@ -8,7 +8,6 @@ from time import time
 from data import get_data, draw_graf, draw_graf_value, draw_graf_volume
 from datetime import datetime, timedelta
 
-
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
@@ -20,10 +19,10 @@ db = mysql.connector.connect(
 )
 db = FDataBase(db)
 
+
 @login_manager.user_loader
 def load_user(user_id):
     print("load_user")
-    print(UserLogin().fromDB(user_id, db))
     return UserLogin().fromDB(user_id, db)
 
 
@@ -74,9 +73,8 @@ def registration():
 @app.route('/account')
 @login_required
 def account():
-    data = current_user.getUserData()
-    print(data)
-    return render_template('account.html')
+    data = current_user.getUserData()[1:-1].replace("'", "").split(", ")
+    return render_template('account.html', data=data)
 
 
 @app.route('/widgets')
