@@ -23,6 +23,7 @@ db = FDataBase(db)
 @login_manager.user_loader
 def load_user(user_id):
     print("load_user")
+    print(UserLogin().fromDB(user_id, db))
     return UserLogin().fromDB(user_id, db)
 
 
@@ -43,9 +44,10 @@ def index():
 @app.route('/auth', methods=['POST', 'GET'])
 def auth():
     if request.method == 'GET':
+        if current_user.is_authenticated:
+            return redirect('/account')
         return render_template('authorization.html')
     elif request.method == 'POST':
-
         login, password = request.form['login'], request.form['passwd']
         user = db.getUserByLogin(login)
         print(user)
@@ -70,6 +72,7 @@ def registration():
 
 
 @app.route('/account')
+@login_required
 def account():
     data = current_user.getUserData()
     print(data)
@@ -81,11 +84,11 @@ def account():
 def widgets():
     data = datetime.now() - timedelta(days=1)
     data = data.strftime('%Y-%m-%d')
-    yndx = get_data('YNDX', data, 0)[::-1][:15]
-    sber = get_data('SBER', data, 0)[::-1][:15]
-    vtb = get_data('VTBR', data, 0)[::-1][:15]
-    rosn = get_data('ROSN', data, 0)[::-1][:15]
-    gasp = get_data('GASP', data, 0)[::-1][:15]
+    yndx = get_data('YNDX', data, 0)[::-1][:15][::-1]
+    sber = get_data('SBER', data, 0)[::-1][:15][::-1]
+    vtb = get_data('VTBR', data, 0)[::-1][:15][::-1]
+    rosn = get_data('ROSN', data, 0)[::-1][:15][::-1]
+    gasp = get_data('GASP', data, 0)[::-1][:15][::-1]
     for name, act in zip(["yndx", "sber", "vtb", "rosn", "gasp"], [yndx, sber, vtb, rosn, gasp]):
         draw_graf(f'static/img/candle_{name}.png', act)
         draw_graf_value(f'static/img/value_{name}.png', act)
