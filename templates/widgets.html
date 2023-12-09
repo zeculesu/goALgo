@@ -13,7 +13,14 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../static/css/navbar.css" rel="stylesheet">
     <link href="../static/css/index.css" rel="stylesheet">
-
+    <style>
+      .hide {
+        display: none;
+      }
+      .hide.show {
+        display: block;
+      }
+    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
@@ -21,9 +28,19 @@
             $("#draggable").draggable();
         });
     </script>
-
     <script>
-
+      window.addEventListener('DOMContentLoaded', function() {
+        var select = document.querySelector('#action-option'),
+        hide = document.querySelectorAll('.hide');
+        function change() {
+          [].forEach.call(hide, function(el) {
+            var add = el.classList.contains(select.value) ? "add" : "remove"
+            el.classList[add]('show');
+          });
+        }
+        select.addEventListener('change', change);
+        change()
+      })
     </script>
 
 </head>
@@ -79,11 +96,11 @@
         <div class="col-3 text-left" style="max-width: 25%; margin-top:15px;">
             <!-- Выбор акции, название писать между option-ами -->
             <select id="action-option" name="action-option" class="form-select mb-3">
-                <option value="1">Яндекс</option>
-                <option value="2">Сбербанк</option>
-                <option value="3">Газпром</option>
-                <option value="4">ВТБ</option>
-                <option value="5">Роснефть</option>
+                <option value="yndx">Яндекс</option>
+                <option value="sber">Сбербанк</option>
+                <option value="gasp">Газпром</option>
+                <option value="vtbr">ВТБ</option>
+                <option value="rosn">Роснефть</option>
             </select>
 
             <div class="form-check form-switch">
@@ -151,7 +168,9 @@
         </div>
 
         <div class="col-5 text-center mx-auto" style="max-width: 75%;">
-
+          
+          <!-- контейнер для яндекса -->
+          <div class="hide yndx">
             <ul class="task-list" style="list-style-type: none;">
                 <!-- путь до изображения вставлять в тег img в параметр src, остальное НЕ ТРОГАТЬ -->
                 <li class="draggable my-2" id='0' draggable="true"
@@ -192,7 +211,7 @@
                                 <p>График свечей по акции</p>
                             </div>
                             <div class="row">
-                                <img class="img-fluid" src="../static/img/tbl.png" alt="">
+                                <img class="img-fluid" src="../static/img/candle_yndx.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -289,6 +308,567 @@
                 </li>
             </ul>
         </div>
+
+        <!-- контейнер для сбера -->
+        <div class="hide sber">
+          <ul class="task-list" style="list-style-type: none;">
+              <!-- путь до изображения вставлять в тег img в параметр src, остальное НЕ ТРОГАТЬ -->
+              <li class="draggable my-2" id='0' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt solution-tree rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>Дерево решений</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Портфель -->
+              <li class="draggable my-2" id='1' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt invest-bag rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>Инвестиционный портфель</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="../static/img/diagram.png" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Свечи по акциям -->
+              <li class="draggable my-2" id='2' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt candle-graph-akcii rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График свечей по акции</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="../static/img/candle_sber.png" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Свечи по индексам -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt candle-graph-index rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График свечей по индексам</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Капитализация по индексам -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt capitaliz-index rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График капитализации по индексам</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Value для индексов -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt value-index rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График value для индексов</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Value для акции -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt value-action rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График value для акции</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Volume для индексов -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt volume-action rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График volume для индексов</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Прибыль/нейронка -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt money-plus rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>Прибыль за промежуток</p>
+                          </div>
+                          <div class="row">
+                              <!-- здесь может быть ваша кнопка для запуска -->
+                          </div>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+        </div>
+
+        <!-- контейнер для газпрома -->
+        <div class="hide gasp">
+          <ul class="task-list" style="list-style-type: none;">
+              <!-- путь до изображения вставлять в тег img в параметр src, остальное НЕ ТРОГАТЬ -->
+              <li class="draggable my-2" id='0' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt solution-tree rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>Дерево решений</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Портфель -->
+              <li class="draggable my-2" id='1' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt invest-bag rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>Инвестиционный портфель</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="../static/img/diagram.png" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Свечи по акциям -->
+              <li class="draggable my-2" id='2' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt candle-graph-akcii rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График свечей по акции</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="../static/img/candle_gasp.png" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Свечи по индексам -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt candle-graph-index rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График свечей по индексам</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Капитализация по индексам -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt capitaliz-index rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График капитализации по индексам</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Value для индексов -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt value-index rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График value для индексов</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Value для акции -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt value-action rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График value для акции</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Volume для индексов -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt volume-action rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>График volume для индексов</p>
+                          </div>
+                          <div class="row">
+                              <img class="img-fluid" src="#" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Прибыль/нейронка -->
+              <li class="draggable my-2" id='3' draggable="true"
+                  style="background-color: rgba(255, 255, 255, 0.281);">
+                  <div class="selectt money-plus rounded-3 p-3 fs-4 border">
+                      <div class="column">
+                          <div class="row">
+                              <p>Прибыль за промежуток</p>
+                          </div>
+                          <div class="row">
+                              <!-- здесь может быть ваша кнопка для запуска -->
+                          </div>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
+
+      <!-- контейнер для втб -->
+      <div class="hide vtbr">
+        <ul class="task-list" style="list-style-type: none;">
+            <!-- путь до изображения вставлять в тег img в параметр src, остальное НЕ ТРОГАТЬ -->
+            <li class="draggable my-2" id='0' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt solution-tree rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>Дерево решений</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Портфель -->
+            <li class="draggable my-2" id='1' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt invest-bag rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>Инвестиционный портфель</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="../static/img/diagram.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Свечи по акциям -->
+            <li class="draggable my-2" id='2' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt candle-graph-akcii rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График свечей по акции</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="../static/img/candle_vtb.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Свечи по индексам -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt candle-graph-index rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График свечей по индексам</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Капитализация по индексам -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt capitaliz-index rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График капитализации по индексам</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Value для индексов -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt value-index rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График value для индексов</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Value для акции -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt value-action rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График value для акции</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Volume для индексов -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt volume-action rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График volume для индексов</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Прибыль/нейронка -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt money-plus rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>Прибыль за промежуток</p>
+                        </div>
+                        <div class="row">
+                            <!-- здесь может быть ваша кнопка для запуска -->
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+      </div>
+
+      <!-- контейнер для роснефти -->
+      <div class="hide rosn">
+        <ul class="task-list" style="list-style-type: none;">
+            <!-- путь до изображения вставлять в тег img в параметр src, остальное НЕ ТРОГАТЬ -->
+            <li class="draggable my-2" id='0' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt solution-tree rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>Дерево решений</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Портфель -->
+            <li class="draggable my-2" id='1' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt invest-bag rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>Инвестиционный портфель</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="../static/img/diagram.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Свечи по акциям -->
+            <li class="draggable my-2" id='2' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt candle-graph-akcii rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График свечей по акции</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="../static/img/candle_rosn.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Свечи по индексам -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt candle-graph-index rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График свечей по индексам</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Капитализация по индексам -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt capitaliz-index rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График капитализации по индексам</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Value для индексов -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt value-index rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График value для индексов</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Value для акции -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt value-action rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График value для акции</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Volume для индексов -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt volume-action rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>График volume для индексов</p>
+                        </div>
+                        <div class="row">
+                            <img class="img-fluid" src="#" alt="">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Прибыль/нейронка -->
+            <li class="draggable my-2" id='3' draggable="true"
+                style="background-color: rgba(255, 255, 255, 0.281);">
+                <div class="selectt money-plus rounded-3 p-3 fs-4 border">
+                    <div class="column">
+                        <div class="row">
+                            <p>Прибыль за промежуток</p>
+                        </div>
+                        <div class="row">
+                            <!-- здесь может быть ваша кнопка для запуска -->
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+      </div>
+      </div>
     </div>
 </div>
 
