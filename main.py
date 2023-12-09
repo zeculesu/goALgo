@@ -18,6 +18,8 @@ db = mysql.connector.connect(
     password="Admin",
 )
 db = FDataBase(db)
+db.delete_db()
+db.make_db()
 
 
 @login_manager.user_loader
