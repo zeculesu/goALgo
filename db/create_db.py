@@ -2,7 +2,7 @@ import mysql.connector
 
 
 def delete_db():
-    query_delete = """DROP DATABASE algo;"""
+    query_delete = """DROP DATABASE users;"""
     cursor.execute(query_delete)
 
 
@@ -25,5 +25,5 @@ if __name__ == '__main__':
         password="Admin",
     )
     cursor = db.cursor()
-    delete_db()
+    #delete_db()
     make_db()

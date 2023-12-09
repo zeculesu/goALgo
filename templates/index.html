@@ -66,99 +66,107 @@
         <div class="row">
           <div class="column" style="max-width: 25%; margin-top:15px;">
             <div class="form-check form-switch">
-            <ul class="task-list" style="list-style-type: none;">
-              <li>
-                <label>
-                <input class="form-check-input" type="checkbox" name="colorCheckbox" value="solution-tree" checked>
-                  дерево решений
-                </label>
-              </li>
-              <li>
-                <input class="form-check-input" type="checkbox" name="colorCheckbox" value="invest-bag" checked>
-                  инвест портфель
-                </label>
-              </li>
-              <li>
-                <input class="form-check-input" type="checkbox" name="colorCheckbox" value="candle-graph" checked>
-                  график свечей
-                </label>
-              </li>
-            </ul>
+              <ul class="task-list" style="list-style-type: none;">
+
+                <!-- <li>
+                  <label>
+                  <input class="form-check-input" type="checkbox" name="colorCheckbox" value="solution-tree" checked>
+                    дерево решений
+                  </label>
+                </li> -->
+                <!-- макет, здесь важны: слова между инпутами - текст 
+                  чекбокса, value - идентификатор чекбокса, 
+                  остальное можно копировать -->
+
+                <li>
+                  <label>
+                  <input class="form-check-input" type="checkbox" name="colorCheckbox" value="solution-tree" checked>
+                    дерево решений
+                  </label>
+                </li>
+                <li>
+                  <input class="form-check-input" type="checkbox" name="colorCheckbox" value="invest-bag" checked>
+                    инвест портфель
+                  </label>
+                </li>
+                <li>
+                  <input class="form-check-input" type="checkbox" name="colorCheckbox" value="candle-graph-akcii" checked>
+                    график свечей по акциям
+                  </label>
+                </li>
+                <li>
+                  <input class="form-check-input" type="checkbox" name="colorCheckbox" value="candle-graph-index" checked>
+                    график свечей по индексам
+                  </label>
+                </li>
+              </ul>
             </div>
           </div>
 
           <div class="column text-center mx-auto" style="max-width: 75%;">
 
             <ul class="task-list" style="list-style-type: none;">
-              <li class="draggable selectt solution-tree" id='0' draggable="true">
+
+              <!-- <li class="draggable selectt candle-graph-index" id='3' draggable="true">
                 <div class="column">
-                    <div class="row">
-                    </div>
-                    <div class="row">
-                        <img class="img-fluid" src="../static/img/tbl.png" alt="">
-                    </div>
-                </div>
-            </div>
-          </li>
-          <li class="draggable" id='1' draggable="true">
-            <div class="container>">
-                <div class="column">
-                    <div class="row">
-                    </div>
-                    <div class="row">
-                        <img class="img-fluid" src="../static/img/tbl3.png" alt="">
-                    </div>
-                </div>
-            </div>
-          </li>
-          <li class="draggable" id='2' draggable="true">
-            <img class="img-fluid" src="../static/img/ava.jpg" alt="">
-          </li>
-          <li class="draggable" id='3' draggable="true">
-            <img class="img-fluid" src="../static/img/tbl4.png" alt="">
-          </li>
-          <li class="draggable" id='4' draggable="true">
-            <img class="img-fluid" src="../static/img/tbl5.png" alt="">
-          </li>
-        </ul>
-                  <div class="row h1">
-                    <p>дерево решений</p>
+                  <div class="row">
                   </div>
                   <div class="row">
-                    <img class="img-fluid" src="../static/img/mem1.jpeg" alt="">
+                      <img class="img-fluid" src="../static/img/tbl5.png" alt="">
                   </div>
                 </div>
-               </li>
+              </li> -->
+              <!-- макет, здесь важны класс candle-graph-index - заменить 
+              на соответствующий идентификатор чекбокса, id - не уверен, 
+              но лучше ставить как первое отсутствующее натуральное число, 
+              сама картинка очевидно. в первом row можно дописать заголовок -->
 
-              <li class="draggable invest-bag selectt" id='1' draggable="true">
-                <div class="container">
-                    <div class="column">
-                        <div class="row h1">
-                            <p>данные о бумаге</p>
-                        </div>
-                        <div class="row">
-                            <img class="img-fluid" width="100%" src="../static/img/mem2.webp" alt="">
-                        </div>
-                    </div>
+              <li class="draggable selectt solution-tree" id='0' draggable="true">
+                <div class="column">
+                  <div class="row">
+                  </div>
+                  <div class="row">
+                      <img class="img-fluid" src="../static/img/tbl.png" alt="">
+                  </div>
                 </div>
               </li>
 
-              <li class="draggable selectt candle-graph" id='2' draggable="true">
-                <div class="container">
-                  <div class="column">
-                      <div class="row h1">
-                          <p>данные о бумаге</p>
-                      </div>
-                      <div class="row">
-                          <img class="img-fluid" width="100%" src="../static/img/mem3.png" alt="">
-                      </div>
+              <li class="draggable selectt invest-bag" id='1' draggable="true">
+                <div class="column">
+                  <div class="row">
                   </div>
-              </div>
+                  <div class="row">
+                      <img class="img-fluid" src="../static/img/tbl3.png" alt="">
+                  </div>
+                </div>
               </li>
+
+              <li class="draggable selectt candle-graph-akcii" id='2' draggable="true">
+                <div class="column">
+                  <div class="row">
+                  </div>
+                  <div class="row">
+                      <img class="img-fluid" src="../static/img/tbl4.png" alt="">
+                  </div>
+                </div>
+              </li>
+
+              <li class="draggable selectt candle-graph-index" id='3' draggable="true">
+                <div class="column">
+                  <div class="row">
+                  </div>
+                  <div class="row">
+                      <img class="img-fluid" src="../static/img/tbl5.png" alt="">
+                  </div>
+                </div>
+              </li>
+
             </ul>
           </div>
-          </div>
+        </div>
       </div>
+
+
       <script>
         var btn = document.querySelector('.add');
         var remove = document.querySelector('.draggable');
