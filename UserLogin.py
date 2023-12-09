@@ -1,3 +1,6 @@
+from flask_login import login_manager
+
+
 class UserLogin:
     def fromDB(self, user_id, db):
         self.__user = db.getUser(user_id)
@@ -17,4 +20,7 @@ class UserLogin:
         return False
 
     def get_id(self):
-        return str(self.__user['id'])
+        return str(self.__user[0])
+
+    def getUserData(self):
+        return self.__user
