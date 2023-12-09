@@ -24,9 +24,9 @@
     <body>
       <nav class="navbar navbar-light border-bottom">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html" style="color: #ff2e2e;">Московская биржа</a>
+          <a class="navbar-brand" href="/" style="color: #ff2e2e;">Московская биржа</a>
           <a href="#" class="ms-auto"><i class="fa-solid fa-basket-shopping" style="color: #ff2e2e;"></i></a>
-          <a href="authorization.html" class="bg-danger rounded-pill ms-3 px-2" style="color: #ffffff;">Вход</a>
+          <a href="/auth" class="bg-danger rounded-pill ms-3 px-2" style="color: #ffffff;">Вход</a>
           <button class="bg-dark rounded-circle ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Переключатель навигации">
             <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
           </button>
@@ -49,18 +49,18 @@
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script></body>
       <!-- <script src="../static/drag.js"></script> -->
-      <script src= "https://code.jquery.com/jquery-1.12.4.min.js"></script> 
-      
+      <script src= "https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-      <script type="text/javascript"> 
-        $(document).ready(function() { 
-            $('input[type="checkbox"]').click(function() { 
-                var inputValue = $(this).attr("value"); 
-                $("." + inputValue).toggle(); 
-            }); 
-        }); 
-    </script> 
-      
+
+      <script type="text/javascript">
+        $(document).ready(function() {
+            $('input[type="checkbox"]').click(function() {
+                var inputValue = $(this).attr("value");
+                $("." + inputValue).toggle();
+            });
+        });
+    </script>
+
 
       <div class="container">
         <div class="row">
@@ -71,29 +71,58 @@
                 <label>
                 <input class="form-check-input" type="checkbox" name="colorCheckbox" value="solution-tree" checked>
                   дерево решений
-                </label> 
+                </label>
               </li>
               <li>
                 <input class="form-check-input" type="checkbox" name="colorCheckbox" value="invest-bag" checked>
                   инвест портфель
-                </label> 
+                </label>
               </li>
               <li>
                 <input class="form-check-input" type="checkbox" name="colorCheckbox" value="candle-graph" checked>
                   график свечей
-                </label> 
+                </label>
               </li>
             </ul>
             </div>
           </div>
 
           <div class="column text-center mx-auto" style="max-width: 75%;">
-           
+
             <ul class="task-list" style="list-style-type: none;">
               <li class="draggable selectt solution-tree" id='0' draggable="true">
                 <div class="column">
+                    <div class="row">
+                    </div>
+                    <div class="row">
+                        <img class="img-fluid" src="../static/img/tbl.png" alt="">
+                    </div>
+                </div>
+            </div>
+          </li>
+          <li class="draggable" id='1' draggable="true">
+            <div class="container>">
+                <div class="column">
+                    <div class="row">
+                    </div>
+                    <div class="row">
+                        <img class="img-fluid" src="../static/img/tbl3.png" alt="">
+                    </div>
+                </div>
+            </div>
+          </li>
+          <li class="draggable" id='2' draggable="true">
+            <img class="img-fluid" src="../static/img/ava.jpg" alt="">
+          </li>
+          <li class="draggable" id='3' draggable="true">
+            <img class="img-fluid" src="../static/img/tbl4.png" alt="">
+          </li>
+          <li class="draggable" id='4' draggable="true">
+            <img class="img-fluid" src="../static/img/tbl5.png" alt="">
+          </li>
+        </ul>
                   <div class="row h1">
-                    <p>дерево решений</p> 
+                    <p>дерево решений</p>
                   </div>
                   <div class="row">
                     <img class="img-fluid" src="../static/img/mem1.jpeg" alt="">
@@ -113,7 +142,7 @@
                     </div>
                 </div>
               </li>
-              
+
               <li class="draggable selectt candle-graph" id='2' draggable="true">
                 <div class="container">
                   <div class="column">
