@@ -6,6 +6,7 @@ from FDataBase import FDataBase
 from data import get_data, draw_graf, draw_graf_value, draw_graf_volume
 from datetime import datetime, timedelta
 
+
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'

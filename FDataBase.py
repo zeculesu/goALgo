@@ -51,12 +51,3 @@ class FDataBase:
         self.cursor.execute(q)
         res = self.cursor.fetchall()
         return userid
-    # def getMenu(self):
-    #     sql = '''SELECT * FROM user'''
-    #     try:
-    #         self.__cur.execute(sql)
-    #         res = self.__cur.fetchall()
-    #         if res: return res
-    #     except:
-    #         print("Ошибка чтения из БД")
-    #     return []
