@@ -14,24 +14,43 @@ class FDataBase:
         query0 = """CREATE DATABASE algo"""
         query1 = """CREATE TABLE algo.users(
                     id_user INT AUTO_INCREMENT PRIMARY KEY,
-                    username TEXT,
+                    name TEXT,
+                    surname TEXT,
+                    thirdname TEXT,
+                    documentID TEXT,
                     login TEXT,
                     password TEXT,
                     photo TEXT) """
         res = self.cursor.execute(query0)
         res = self.cursor.execute(query1)
 
-    def add_user(self, username, login, password, photo):
+    def add_user(self, name, surname, thirdname, documentID, login, password, photo):
         q = """SELECT id_user FROM algo.users;"""
 
         self.cursor.execute(q)
-        new_id = max(self.cursor.fetchall())[0] + 1 if self.cursor.fetchall() else 1
+        k = self.cursor.fetchall()
+        if k:
+            new_id = max(k)[0] + 1
+        else:
+            new_id = 1
         filename = f"{new_id}.{photo.filename.split('.')[1]}"
-        query = f"""INSERT INTO algo.users (id_user, username, login, password, photo)
-                        VALUES (null, "{username}", "{login}", "{password}", "{filename}");"""
+        query = f"""INSERT INTO algo.users (id_user, name, surname, thirdname, documentID, login, password, photo)
+                        VALUES (null, "{name}", "{surname}", "{thirdname}", "{documentID}", "{login}", "{password}", "{filename}");"""
         photo.save(f"static/img/users/{filename}")
         self.cursor.execute(query)
         self.__db.commit()
+
+    def getUserByLogin(self, login):
+        q = f"""SELECT * FROM algo.users WHERE login = "{login}";"""
+        self.cursor.execute(q)
+        res = self.cursor.fetchall()
+        return res
+
+    def getUser(self, userid):
+        q = f"""SELECT * FROM algo.users WHERE id_user = "{userid}";"""
+        self.cursor.execute(q)
+        res = self.cursor.fetchall()
+        return res
     # def getMenu(self):
     #     sql = '''SELECT * FROM user'''
     #     try:
