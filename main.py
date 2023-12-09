@@ -4,11 +4,9 @@ from db.api.req import *
 from flask_login import LoginManager, login_user, current_user, logout_user, login_required
 from UserLogin import UserLogin
 from FDataBase import FDataBase
-
-# @login_manager.user_loader
-# def load_user(user_id):
-#     print("load_user")
-#     return UserLogin().fromDB(user_id, db)
+from time import time
+from data import get_data, draw_graf
+from datetime import datetime, timedelta
 
 
 app = Flask(__name__)
@@ -76,6 +74,25 @@ def account():
     data = current_user.getUserData()
     print(data)
     return render_template('account.html')
+
+
+@app.route('/widgets')
+@login_required
+def widgets():
+    data = datetime.now() - timedelta(days=1)
+    data = data.strftime('%Y-%m-%d')
+    yndx = get_data('YNDX', data, 0)[::-1][:15]
+    sber = get_data('SBER', data, 0)[::-1][:15]
+    vtb = get_data('VTBR', data, 0)[::-1][:15]
+    rosn = get_data('ROSN', data, 0)[::-1][:15]
+    gasp = get_data('GASP', data, 0)[::-1][:15]
+    draw_graf('static/img/candle_yndx.png', yndx)
+    draw_graf('static/img/candle_sber.png', sber)
+    draw_graf('static/img/candle_vtb.png', vtb)
+    draw_graf('static/img/candle_rosn.png', rosn)
+    draw_graf('static/img/candle_gasp.png', gasp)
+
+    return render_template('widgets.html')
 
 
 if __name__ == '__main__':
