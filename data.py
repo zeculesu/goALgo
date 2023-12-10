@@ -90,12 +90,3 @@ def get_index():
     df = pd.read_csv(url, sep=';', skiprows=2)
     table = pd.concat([table, df])
     return table
-
-
-# prices = get_data('YNDX', '2023-12-07', 0)[::-1][:15][::-1]
-# draw_graf_volume('static/img/tbl3.png', prices)
-
-# prices = get_data('SBER', '2023-10-10', 0)[:15]
-# draw_graf('static/img/tbl4.png', prices)
-# prices = get_data('SBER', '2023-10-10', 16)[:15]
-# draw_graf('static/img/tbl5.png', prices)

@@ -5,6 +5,7 @@ from UserLogin import UserLogin
 from FDataBase import FDataBase
 from data import get_data, draw_graf, draw_graf_value, draw_graf_volume
 from datetime import datetime, timedelta
+from algo_strategy import *
 
 
 app = Flask(__name__)
@@ -81,7 +82,7 @@ def account():
 @app.route('/widgets')
 @login_required
 def widgets():
-    data = datetime.now() - timedelta(days=1)
+    data = datetime.now() - timedelta(days=2)
     data = data.strftime('%Y-%m-%d')
     yndx = get_data('YNDX', data, 0)[::-1][:15][::-1]
     sber = get_data('SBER', data, 0)[::-1][:15][::-1]
@@ -92,6 +93,16 @@ def widgets():
         draw_graf(f'static/img/candle_{name}.png', act)
         draw_graf_value(f'static/img/value_{name}.png', act)
         draw_graf_volume(f'static/img/volume_{name}.png', act)
+
+    parameters = [210, 289, 860, 470, 66, 35, 28, 96, 1.6847228786653599, 0.4600834317359753]
+    # Следующие параметры это вторая стратегия, она лучше для графика
+    # Однако первая более прибыльная, если "не думать"
+    # Default это просто не ставить этот параметр, то бишь заменить его на ноль и убрать его индекс в коде
+    #parameters2 = [21, 26, Default, Default, 21, 20, 10, 75, 1.01, 0.99]
+    data = get_data_tree()
+    sberbank_data = sberbank_strategy(data, parameters)
+    drawing_graf(sberbank_data, 'static/img/tree.png')
+
     return render_template('widgets.html')
 
 
